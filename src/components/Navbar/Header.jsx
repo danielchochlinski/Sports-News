@@ -13,9 +13,11 @@ import {
 const Header = () => {
   return (
     <>
-      <Navbar bg="primary" className="text-white" expand="lg">
+      <Navbar bg="primary" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="/">Sports News</Navbar.Brand>
+          <Navbar.Brand className="text-white " href="/">
+            Sports News
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -23,7 +25,7 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link as={Link} to="/">
+              <Nav.Link className="text-white " as={Link} to="/">
                 Home
               </Nav.Link>
             </Nav>

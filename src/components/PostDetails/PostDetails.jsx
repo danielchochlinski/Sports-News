@@ -50,9 +50,8 @@ const PostItem = () => {
 
   let data = { ...post, ...image, ...user };
   useEffect(() => {
-    getPost();
-    getImage();
-    getUser();
+    Promise.all(getPost(), getImage(), getUser());
+
     getComments();
   }, []);
   const [axiosFetch] = useAxios();
@@ -67,9 +66,9 @@ const PostItem = () => {
       },
     });
   };
-const closeModal = () => {
-  setShowAddComment(false)
-}
+  const closeModal = () => {
+    setShowAddComment(false);
+  };
   console.log(comments);
 
   return (
@@ -91,13 +90,14 @@ const closeModal = () => {
       <div>
         <div className="comment_options">
           <h4 className="m-1  p-1">Comments</h4>
+          {}
           <Button onClick={() => setShowAddComment(true)} variant="primary">
             Add Comment
           </Button>
         </div>
         {comments.map((comment) => (
           <Card style={{ width: "52rem" }} className="m-4">
-            <Card.Header>{comment.name}</Card.Header>
+            <Card.Header className="text-center">{comment.name}</Card.Header>
             <Card.Body>
               <blockquote className="blockquote mb-1">
                 <p>{comment.body}</p>
@@ -108,7 +108,7 @@ const closeModal = () => {
             </Card.Body>
           </Card>
         ))}
-        {showAddComment && <AddForm onClose={closeModal}/>}
+        {showAddComment && <AddForm onClose={closeModal} />}
       </div>
     </div>
   );

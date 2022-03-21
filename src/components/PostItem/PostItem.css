@@ -92,13 +92,21 @@ img {
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 1.1rem;
-  background-image: -webkit-gradient(linear, left top, right top, from(#141e30), to(#243b55));
-  background-image: linear-gradient(to right, #141e30, #243b55);
   border-radius: .8rem;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
-a {
+.post_item_more a {
   text-decoration: none;
+  color: white;
+}
+
+.post_item_more a:hover {
+  text-decoration: none;
+  color: white;
 }
 
 @media (max-width: 1068px) {

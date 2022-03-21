@@ -9,10 +9,11 @@
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   border-radius: .8rem;
+  text-align: center;
 }
 
 .formControl input {
-  width: 30rem;
+  width: 22rem;
   margin: .5rem;
   border-radius: .8rem;
 }
@@ -24,7 +25,7 @@
 }
 
 .formControl textarea {
-  width: 30rem;
+  width: 22rem;
   margin: .5rem;
   border-radius: .8rem;
 }
@@ -41,7 +42,7 @@
 }
 
 .formControlInvalid input {
-  width: 30rem;
+  width: 22rem;
   margin: .5rem;
   border-radius: .8rem;
 }
@@ -54,7 +55,7 @@
 
 .formControlInvalid textarea {
   margin: .5rem;
-  width: 30rem;
+  width: 22rem;
 }
 
 .formControlInvalid textarea:focus {

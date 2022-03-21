@@ -100,7 +100,12 @@ const AddForm = (props) => {
           )}
         </div>
 
-        <Button style={{ width: "10rem" }} className="m-4 btn-default">
+        <Button
+          disabled={!formIsValid}
+          onClick={props.onClose}
+          style={{ width: "10rem" }}
+          className="m-4 btn-default"
+        >
           Submit
         </Button>
       </div>

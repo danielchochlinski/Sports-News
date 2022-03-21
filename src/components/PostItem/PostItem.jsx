@@ -1,7 +1,5 @@
-import { Button } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
+
 import { Link } from "react-router-dom";
-import data from "../../apis/data";
 import "./PostItem.css";
 
 const PostItem = ({ title, body, id, picture, name }) => {
