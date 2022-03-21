@@ -11,7 +11,7 @@ const PostItem = ({ title, body, id, picture, name }) => {
           <img src={picture} alt="" />
         </div>
         <div className="post_item_author">
-          <span>{name || ""}</span>
+          <span>by. {name || ""}</span>
         </div>
         <div className="post_item_info">
           <h1>{title}</h1>
