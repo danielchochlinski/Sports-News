@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CAAC,EAAE,CAAC;EACV,UAAU,EAAE,IAAI;CAAG",
+    "sources": [
+        "PostList.sass"
+    ],
+    "names": [],
+    "file": "PostList.css"
+}

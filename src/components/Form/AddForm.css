@@ -1,0 +1,80 @@
+.add_comment_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: .8rem;
+}
+
+.formControl input {
+  width: 30rem;
+  margin: .5rem;
+  border-radius: .8rem;
+}
+
+.formControl input:focus {
+  background: #FFFDD0;
+  border: none;
+  outline: none;
+}
+
+.formControl textarea {
+  width: 30rem;
+  margin: .5rem;
+  border-radius: .8rem;
+}
+
+.formControl textarea:focus {
+  background: #FFFDD0;
+  outline: none;
+  border-radius: .8rem;
+}
+
+.formControl label {
+  margin: .5rem;
+  display: block;
+}
+
+.formControlInvalid input {
+  width: 30rem;
+  margin: .5rem;
+  border-radius: .8rem;
+}
+
+.formControlInvalid input:focus {
+  background: #FFFDD0;
+  border: none;
+  outline: none;
+}
+
+.formControlInvalid textarea {
+  margin: .5rem;
+  width: 30rem;
+}
+
+.formControlInvalid textarea:focus {
+  background: #FFFDD0;
+  outline: none;
+}
+
+.formControlInvalid label {
+  display: block;
+}
+
+.x span {
+  float: right;
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  margin-right: 1rem;
+}
+
+.error {
+  color: red;
+}
+/*# sourceMappingURL=AddForm.css.map */

@@ -1,0 +1,62 @@
+.add_comment_container
+    display: flex
+    flex-direction: column
+    background-color: rgba(0, 0, 0, 0.6)
+    color: white
+    border-radius: .8rem
+
+.formControl input
+    width: 30rem
+    margin: .5rem
+    border-radius: .8rem
+    
+    &:focus
+        background: #FFFDD0
+        border: none
+        outline: none
+        
+
+.formControl textarea
+    width: 30rem
+    margin: .5rem
+    border-radius: .8rem
+    &:focus
+        background: #FFFDD0
+        outline: none
+        border-radius: .8rem
+
+    
+
+.formControl label
+    margin: .5rem
+    display: block
+
+
+//Invalid
+.formControlInvalid input
+    width: 30rem
+    margin: .5rem
+    border-radius: .8rem
+    &:focus
+        background: #FFFDD0
+        border: none
+        outline: none
+
+.formControlInvalid textarea
+    margin: .5rem
+    width: 30rem
+    &:focus
+        background: #FFFDD0
+        outline: none
+
+.formControlInvalid label
+    display: block
+    
+.x span
+    float: right
+    color: white
+    font-size: 2rem
+    position: relative
+    margin-right: 1rem
+.error
+    color: red

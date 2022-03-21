@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACV,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,eAAe,EAAE,MAAM;EACvB,QAAQ,EAAE,KAAK;EACf,KAAK,EAAE,GAAG;CAAG",
+    "sources": [
+        "CommentList.sass"
+    ],
+    "names": [],
+    "file": "CommentList.css"
+}
