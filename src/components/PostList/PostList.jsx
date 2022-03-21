@@ -6,8 +6,9 @@ import "./PostList.css";
 import { Spinner } from "react-bootstrap";
 
 const PostList = () => {
-  // const [data, setData] = useState();
   const [posts, error, loading, axiosFetch] = useAxios();
+  const [combinedData, setCombinedData] = useState([]);
+
   const getPosts = () => {
     axiosFetch({
       axiosInstance: axios,
@@ -26,43 +27,33 @@ const PostList = () => {
   };
 
   useEffect(() => {
-    // async function getAllData() {
-    //   let data = await Promise.all([getData(), getPosts()]);
-    //   data = posts.map((post, i) => {
-    //     return {
-    //       id: post.id,
-    //       userId: post.userId,
-    //       title: post.title,
-    //       body: post.body,
-    //       url: images[i].url,
-    //     };
-    //   });
-    //   setData(data);
-    // }
-    // getAllData();
-    getData()
-    getPosts()
-
+    getData();
+    getPosts();
     // eslint-disable-next-line
   }, []);
-  console.log(images);
-  console.log(posts);
-  let data = posts.map((post, i) => {
-    return {
-      id: post.id,
-      userId: post.userId,
-      title: post.title,
-      body: post.body,
-      url: images[i].url,
-    };
-  });
-  
+
+  useEffect(() => {
+    if (posts.length && images.length) {
+      setCombinedData(
+        posts.map((post, i) => {
+          return {
+            id: post.id,
+            userId: post.userId,
+            title: post.title,
+            body: post.body,
+            url: images[i].url,
+          };
+        })
+      );
+    }
+  }, [posts, images]);
+
   return (
     <div className="post_list">
       <h3>Recent Sports News</h3>
-      {loading && imageLoading && <Spinner animation="border" size="xxl" />}
-      {data &&
-        data.map((data) => (
+      {loading && imageLoading && (<Spinner animation="border" size="xxl" />)}
+      {combinedData &&
+        combinedData.map((data) => (
           <PostItem
             key={data.id}
             title={data.title}

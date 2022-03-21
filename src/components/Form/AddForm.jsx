@@ -1,13 +1,15 @@
-import React from "react";
+import { useContext } from "react";
 import useInput from "../../hooks/useInput";
 import Modal from "../ui/Modal";
 import { Button } from "react-bootstrap";
 import "./AddForm.css";
+import NotificationContext from "../../store/notification-context";
 
 const isNotEmpty = (value) => value.trim() !== "";
-const emailIsNotEmpty = (value) => value.trim() !== "";
 
 const AddForm = (props) => {
+  const notificationCtx = useContext(NotificationContext);
+
   const {
     value: enteredTitle,
     isValid: titleIsValid,
@@ -58,57 +60,76 @@ const AddForm = (props) => {
       email: enteredEmail,
       comment: enteredComment,
     };
+    // axiosFetch({
+    //   axiosInstance: axios,
+    //   method: "post",
+    //   url: "/posts",
+    //   requestConfig: {
+    //     data,
+    //   },
+    // });
+
+    notificationCtx.showNotification({
+      title: "Success",
+      message: "Comment Added.",
+      status: "success",
+    });
+    props.onClose();
   };
   return (
     <Modal>
-      <div className="add_comment_container">
-        <div className="x">
-          <span onClick={props.onClose}>X</span>
-        </div>
-        <div className={titleStyle}>
-          <label htmlFor="">Title</label>
-          <input
-            value={enteredTitle}
-            onChange={titleChangeHandler}
-            onBlur={titleBlurHandler}
-            type="text"
-          />
-          {titleInputHasError && <p className="error">Please enter a title.</p>}
-        </div>
-        <div className={emailStyle}>
-          <label htmlFor="">Email</label>
-          <input
-            value={enteredEmail}
-            onChange={emailChangeHandler}
-            onBlur={emailBlurHandler}
-            type="text"
-          />
-          {emailInputHasError && (
-            <p className="error">Please enter a valid email.</p>
-          )}
-        </div>
-        <div className={commentStyle}>
-          <label htmlFor="">Comment</label>
-          <textarea
-            type="text"
-            value={enteredComment}
-            onChange={commentChangeHandler}
-            onBlur={commentBlurHandler}
-          />
-          {commentInputHasError && (
-            <p className="error">Please enter a comment.</p>
-          )}
-        </div>
+      <form onSubmit={submitComment}>
+        <div className="add_comment_container">
+          <div className="x">
+            <span onClick={props.onClose}>X</span>
+          </div>
+          <div className={titleStyle}>
+            <label htmlFor="">Title</label>
+            <input
+              value={enteredTitle}
+              onChange={titleChangeHandler}
+              onBlur={titleBlurHandler}
+              type="text"
+            />
+            {titleInputHasError && (
+              <p className="error">Please enter a title.</p>
+            )}
+          </div>
+          <div className={emailStyle}>
+            <label htmlFor="">Email</label>
+            <input
+              value={enteredEmail}
+              onChange={emailChangeHandler}
+              onBlur={emailBlurHandler}
+              type="text"
+            />
+            {emailInputHasError && (
+              <p className="error">Please enter a valid email.</p>
+            )}
+          </div>
+          <div className={commentStyle}>
+            <label htmlFor="">Comment</label>
+            <textarea
+              type="text"
+              value={enteredComment}
+              onChange={commentChangeHandler}
+              onBlur={commentBlurHandler}
+            />
+            {commentInputHasError && (
+              <p className="error">Please enter a comment.</p>
+            )}
+          </div>
 
-        <Button
-          disabled={!formIsValid}
-          onClick={props.onClose}
-          style={{ width: "10rem" }}
-          className="m-4 btn-default"
-        >
-          Submit
-        </Button>
-      </div>
+          <Button
+            onClick={submitComment}
+            disabled={!formIsValid}
+            style={{ width: "10rem" }}
+            className="m-4 btn-default"
+          >
+            Submit
+          </Button>
+        </div>
+      </form>
     </Modal>
   );
 };

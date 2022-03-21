@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../apis/data";
-import "./PostDetails.css";
 import useAxios from "../../hooks/useAxios";
-import { Card } from "react-bootstrap";
-import { Button } from "react-bootstrap";
+import { Card, Spinner, Button } from "react-bootstrap";
 import AddForm from "../Form/AddForm";
+import "./PostDetails.css";
 
 const PostItem = () => {
+  function componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+  componentDidMount();
+
   const [showAddComment, setShowAddComment] = useState(false);
   let { id } = useParams();
 
-  const [post, error, loading, axiosFetchPost] = useAxios();
+  const [post, postError, postLoading, axiosFetchPost] = useAxios();
   const getPost = () => {
     axiosFetchPost({
       axiosInstance: axios,
@@ -20,7 +24,7 @@ const PostItem = () => {
     });
   };
 
-  const [image, imageError, imageLoading, axiosFetchImage] = useAxios();
+  const [image, photoError, photoLoading, axiosFetchImage] = useAxios();
   const getImage = () => {
     axiosFetchImage({
       axiosInstance: axios,
@@ -54,22 +58,10 @@ const PostItem = () => {
 
     getComments();
   }, []);
-  const [axiosFetch] = useAxios();
 
-  const handleSubmit = (data) => {
-    axiosFetch({
-      axiosInstance: axios,
-      method: "post",
-      url: "/posts",
-      requestConfig: {
-        data,
-      },
-    });
-  };
   const closeModal = () => {
     setShowAddComment(false);
   };
-  console.log(comments);
 
   return (
     <div className="details_page_container">
@@ -95,8 +87,9 @@ const PostItem = () => {
             Add Comment
           </Button>
         </div>
-        {comments.map((comment) => (
-          <Card style={{ width: "52rem" }} className="m-4">
+        {commentLoading && <Spinner animation="border" size="xxl" />}
+        {comments.map((comment, i) => (
+          <Card key={i} style={{ width: "52rem" }} className="m-4">
             <Card.Header className="text-center">{comment.name}</Card.Header>
             <Card.Body>
               <blockquote className="blockquote mb-1">
@@ -108,6 +101,12 @@ const PostItem = () => {
             </Card.Body>
           </Card>
         ))}
+        {commentError && (
+          <div>
+            <p>Something went wrong</p>
+          </div>
+        )}
+
         {showAddComment && <AddForm onClose={closeModal} />}
       </div>
     </div>

@@ -1,4 +1,6 @@
-import React from "react";
+import { useContext } from "react";
+import Notification from "../ui/Notification";
+import NotificationContext from "../../store/notification-context";
 import { Link } from "react-router-dom";
 import {
   Navbar,
@@ -11,11 +13,20 @@ import {
 } from "react-bootstrap";
 
 const Header = () => {
+  const notificatioCtx = useContext(NotificationContext);
+  const activeNotification = notificatioCtx.notification;
   return (
     <>
       <Navbar bg="primary" expand="lg">
+        {activeNotification && (
+          <Notification
+            title={activeNotification.title}
+            message={activeNotification.message}
+            status={activeNotification.status}
+          />
+        )}
         <Container fluid>
-          <Navbar.Brand className="text-white " href="/">
+          <Navbar.Brand className="text-white ">
             Sports News
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

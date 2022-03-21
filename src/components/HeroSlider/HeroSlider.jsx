@@ -18,7 +18,7 @@ const HeroSlider = () => {
       <Carousel.Item interval={500}>
         <img
           className="d-block w-100"
-          src="https://cdns.crestline.com/crestline/team-building-activities-for-work.jpg?q=100"
+          src="https://www.sodapdf.com/blog/wp-content/uploads/2017/10/blog_teambuilding-1.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
@@ -29,7 +29,7 @@ const HeroSlider = () => {
       <Carousel.Item>
         <img
           className="d-block w-100 h-80"
-          src="https://mlflfvh4wrri.i.optimole.com/6A2s4M4.mzeT~21142/w:auto/h:auto/q:75/https://www.eventurous.co.uk/wp-content/uploads/2020/05/Homepage-Image-Outdoor-Team-Building-Banner.jpg"
+          src="https://www.sodapdf.com/blog/wp-content/uploads/2017/10/blog_teambuilding-1.jpg"
           alt="Third slide"
         />
         <Carousel.Caption>
